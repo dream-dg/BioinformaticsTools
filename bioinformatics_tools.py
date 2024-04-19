@@ -5,11 +5,11 @@ def count_nucleotides(input, rna=False):
     Count A, C, G, and T or U bases in provided DNA/RNA sequence
     """
     if rna:
-        t_or_u = input.count("U") if rna else input.count("T")
+        t_u_count = input.count("U")
     else:
-        t_or_u = input.count("T")
+        t_u_count = input.count("T")
     
-    return input.count("A"), input.count("C"), input.count("G"), t_or_u
+    return input.count("A"), input.count("C"), input.count("G"), t_u_count
 
 def transcribe_seq(input):
     """
@@ -32,7 +32,7 @@ def get_GC_content(input):
     """
     Calculate percentage of G and C nucleotides in provided DNA sequence
     """
-    return (input.count("G") + input.count("C")) / len(input) * 100 # percentage
+    return (input.count("G") + input.count("C")) / len(input) * 100
 
 def read_fasta_seqs(file_name):
     """
